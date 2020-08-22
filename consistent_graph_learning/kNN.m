@@ -1,0 +1,17 @@
+function [A, idx] = kNN(B, knn)
+[A, idx] = maxk_new(B, knn, 2, 'sorting', false);
+n = size(A, 1);
+
+% adjacency_matrix = zeros(n,n);
+% for i=1:n
+%     adjacency_matrix(i, idx(i,:)) = A(i, :);
+% end
+% A = sparse(adjacency_matrix);
+
+rowidx = repmat((1:n)', 1, knn);
+A = sparse(rowidx, idx, A, n, n);
+
+% A = max(A, A');
+A = (A + A')/2;
+% A = power(A .* A', 1/2);
+end
