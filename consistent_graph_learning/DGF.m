@@ -70,7 +70,7 @@ end
 
 b = cross_b*ones(v) - diag(cross_b*ones(1,v)) + diag(self_b*ones(1,v));
 
-[S, call_qp, iter, alpha] = consistent_graph_dca(v, ne, D, b, w, tol, tol2, max_iter);
+[S, call_qp, iter, alpha] = consistent_graph_dca_noMKL(v, ne, D, b, w, tol, tol2, max_iter);
 
 sigma = mean(S.^(1/d));  % if d==2, this coincides with Gaussian kernel
 S = exp(-S/(2*sigma^d));
