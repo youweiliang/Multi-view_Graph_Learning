@@ -3,11 +3,15 @@ Code for our paper "[Multi-view Graph Learning by Joint Modeling of Consistency 
 
 
 ### Preparation
-* **Windows 64bit**: 
-Add some helper files to MATLAB path by `addpath('MinMaxSelection'); addpath('util')` command in MATLAB command window.
-* **Linux, Windows 32bit and Mac OS**: 
-Add some helper files to MATLAB path by `addpath('MinMaxSelection'); addpath('util')` command in MATLAB command window. Then recompile the helper functions by running `minmax_install` in folder `MinMaxSelection`.
-
+* Using with MATLAB
+  * **Windows 64bit**  
+  Add some helper files to MATLAB path by `addpath('MinMaxSelection'); addpath('util')` command in MATLAB command window. In subfolder `consistent_graph_learning`, rename one of the files `consistent_graph_dca_MKL_VS` `consistent_graph_dca_MKL` to `consistent_graph_dca` if you have MKL and/or Visual Studio installed. The default file `consistent_graph_dca` assumes **no MKL and no Visual Studio** installed.
+  * **Linux, Windows 32bit and Mac OS**  
+  1. Add some helper files to MATLAB path by `addpath('MinMaxSelection'); addpath('util')` command in MATLAB command window.
+  1. Recompile the helper functions by running `minmax_install` in folder `MinMaxSelection`.
+  1. Recompile `consistent_graph_dca` following guidance in [this README](https://github.com/youweiliang/Multi-view_Graph_Learning/tree/master/graph_learning_cpp).
+* Using with C++ or C  
+For folks without MATLAB and for industrial usage, the Consistent Graph Learning algorithm is coded in C++ (or C with slight modification). An MATLAB implementation should be simple following the algorithm in the paper and may be faster than a C++ implementation without MKL, since the bottleneck of the Consistent Graph Learning algorithm lies in large matrix multiplication and MATLAB internally uses MKL for matrix multiplication. Therefore, if using C++ implementation, it is highly recommended to install MKL (it's free).
 
 ### Example usage
 ```MATLAB
