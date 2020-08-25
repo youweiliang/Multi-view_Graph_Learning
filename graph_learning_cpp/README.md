@@ -8,14 +8,14 @@ Both MinGW64 Compiler and Visual Studio Compiler would work (use `mex -setup C++
 * If using MKL, comment out the `#define NOBLAS` line in `use_blas.h`
 
 #### Compilation commands
-* NO BLAS and NO MKL
+* NO BLAS and NO MKL  
 `mex -v -largeArrayDims COMPFLAGS="$COMPFLAGS /openmp" LINKFLAGS='$LINKFLAGS /nodefaultlib:vcomp;vcompd' consistent_graph_dca.cpp DCA.cpp helper.cpp qp_simplex_fixed2.cpp linear_algebra.cpp`
 
-* With MKL, using openmp, static link
+* With MKL, using openmp, static link  
 `mex -v -largeArrayDims COMPFLAGS="$COMPFLAGS /openmp" LINKFLAGS='$LINKFLAGS /nodefaultlib:vcomp;vcompd' -I'C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2020.0.166\windows\mkl\include' consistent_graph_dca.cpp DCA.cpp helper.cpp qp_simplex_fixed2.cpp linear_algebra.cpp -L'C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2020.0.166\windows\mkl\lib\intel64_win' -L'C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2020.0.166\windows\compiler\lib\intel64_win' mkl_intel_lp64.lib mkl_intel_thread.lib mkl_core.lib libiomp5md.lib`
 
-* With MKL, using openmp, dynamic link
+* With MKL, using openmp, dynamic link  
 mex -v -largeArrayDims COMPFLAGS="$COMPFLAGS /openmp" LINKFLAGS='$LINKFLAGS /nodefaultlib:vcomp;vcompd' -I'C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2020.0.166\windows\mkl\include' consistent_graph_dca.cpp DCA.cpp helper.cpp qp_simplex_fixed2.cpp linear_algebra.cpp -L'C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2020.0.166\windows\mkl\lib\intel64_win' -L'C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2020.0.166\windows\compiler\lib\intel64_win' mkl_intel_lp64_dll.lib mkl_intel_thread_dll.lib mkl_core_dll.lib libiomp5md.lib
 
-* With MKL, using tbb, dynamic link
+* With MKL, using tbb, dynamic link  
 mex -v -largeArrayDims -I'C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2020.0.166\windows\mkl\include' consistent_graph_dca.cpp DCA.cpp helper.cpp qp_simplex_fixed2.cpp linear_algebra.cpp -L'C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2020.0.166\windows\mkl\lib\intel64_win' -L'C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2020.0.166\windows\tbb\lib\intel64_win\vc_mt' mkl_intel_lp64_dll.lib mkl_tbb_thread_dll.lib mkl_core_dll.lib tbb.lib
