@@ -1,5 +1,5 @@
 # Multi-view Graph Learning
-Code for our paper "Multi-view Graph Learning by Joint Modeling of Consistency and Inconsistency", which is follow-up work of our ICDM paper "Consistency Meets Inconsistency: A Unified Graph Learning Framework for Multi-view Clustering" and is currently under review.
+Code for our paper "[Multi-view Graph Learning by Joint Modeling of Consistency and Inconsistency](https://arxiv.org/abs/2008.10208)", which is follow-up work of our ICDM paper "Consistency Meets Inconsistency: A Unified Graph Learning Framework for Multi-view Clustering".
 
 
 ### Preparation
