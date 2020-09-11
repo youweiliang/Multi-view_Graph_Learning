@@ -1,6 +1,8 @@
 # Multi-view Graph Learning
 Code for our paper "[Multi-view Graph Learning by Joint Modeling of Consistency and Inconsistency](https://arxiv.org/abs/2008.10208)", which is the follow-up work of our ICDM paper "Consistency Meets Inconsistency: A Unified Graph Learning Framework for Multi-view Clustering". ***This version is more robust and stable and efficient than the ICDM version.*** Please see the paper for details. 
 
+### News
+* 2020/9/11: The code of the 7 multi-view spectral clustering algorithms (and a single-view spectral clustering algorithm) used for comparison in our paper is uploaded to [this repository](https://github.com/youweiliang/Multi-view_Clustering). 
 
 ### Preparation
 * Using with MATLAB
