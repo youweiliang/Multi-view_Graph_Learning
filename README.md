@@ -3,6 +3,7 @@ Code for our paper "[Multi-view Graph Learning by Joint Modeling of Consistency 
 
 ### News
 * [Sep, 2020]: The code of the 7 multi-view spectral clustering algorithms (and a single-view spectral clustering algorithm) used for comparison in our paper is uploaded to [this repository](https://github.com/youweiliang/Multi-view_Clustering). 
+* [Sep, 2020]: All datasets used in our paper are uploaded to Baidu Cloud and Google Drive. 
 
 ### Dataset
 All datasets used in our paper are available at [Baidu Cloud](https://pan.baidu.com/s/1bAfDcgH3NguqWM6saDTv1g) with code `pqti` and [Google Drive](https://drive.google.com/drive/folders/1UtjL0Og7ALs9AJq9XnkdrYUmr5rudCyk?usp=sharing). Each dataset is a mat file containing 2 variables `fea` (i.e., a MATLAB cell of features) and `gt` (i.e., ground truth label), except the file `flower17.mat` which contains a cell of distance matrices and ground truth since features are unavailable. 
