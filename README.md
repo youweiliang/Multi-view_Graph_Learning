@@ -30,3 +30,13 @@ score = getFourMetrics(label, gt)  % 4 metrics: ACC, ARI, NMI, purity
 [label, com_a] = DGF(fea, numClust);
 score = getFourMetrics(label, gt)
 ```
+
+### Citation
+```
+@article{liang2020multi,
+  title={Multi-view Graph Learning by Joint Modeling of Consistency and Inconsistency},
+  author={Liang, Youwei and Huang, Dong and Wang, Chang-Dong and Yu, Philip S},
+  journal={arXiv preprint arXiv:2008.10208},
+  year={2020}
+}
+```
