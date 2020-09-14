@@ -78,7 +78,7 @@ end
 b = cross_b*ones(v) - diag(cross_b*ones(1,v)) + diag(self_b*ones(1,v));
 
 %% run graph learning algorithm
-[S, call_qp, iter, alpha] = consistent_graph_dca_noMKL_noVS(v, ne, D, b, w, tol, tol2, max_iter);
+[S, call_qp, iter, alpha] = consistent_graph_dca(v, ne, D, b, w, tol, tol2, max_iter);
 
 affinity_matrix = sparse_from_idx(S, knn_idx, n, n);
 
