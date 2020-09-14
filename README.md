@@ -12,7 +12,7 @@ All datasets used in our paper are available at [Baidu Cloud](https://pan.baidu.
 * Using with MATLAB
   * **Windows 64bit**
     * Add some helper files to MATLAB path by `addpath('MinMaxSelection'); addpath('util')` command in MATLAB command window.
-    * In folder `consistent_graph_learning`, rename one of the files `consistent_graph_dca_MKL_VS.mexw64` `consistent_graph_dca_MKL.mexw64` to `consistent_graph_dca.mexw64` if you have MKL and/or Visual Studio installed. The default file `consistent_graph_dca.mexw64` assumes _no MKL and no Visual Studio_ installed. If your dataset size is larger than 20,000, it is highly recommended to install MKL for better performance (it's free).
+    * In the folder `consistent_graph_learning`, according to whether there is MKL or Visual Studio (VS) installed on your machine, choose one among the three files `consistent_graph_dca_noMKL_noVS.mexw64`, `consistent_graph_dca_MKL_VS.mexw64`, and `consistent_graph_dca_MKL_noVS.mexw64`. And rename the chosen file to `consistent_graph_dca.mexw64`. The default file `consistent_graph_dca.mexw64` is just `consistent_graph_dca_noMKL_noVS.mexw64`, which assumes _no MKL and no Visual Studio_ installed. If your dataset size is larger than 20,000, it is highly recommended to install MKL for better performance (it's free).
   * **Windows 32bit, Linux, Mac OS**  
     - Add some helper files to MATLAB path by `addpath('MinMaxSelection'); addpath('util')` command in MATLAB command window.
     - Recompile the helper functions by running `minmax_install` in folder `MinMaxSelection`.
