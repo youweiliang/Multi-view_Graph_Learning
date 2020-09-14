@@ -1,4 +1,20 @@
 function [label, com_a] = SGF(fea, numClust, knn0, w, self_b, cross_b, metric)
+% Similarity Graph Learning for multi-view spectral clustering
+% Inputs:
+%   fea - a cell of feature matrices, each row corresponds to an instance 
+%         and each colomn corresponds to a feature
+%   numClust - number of desired clusters
+%   knn0 - number of k-nearest neighbors
+%   w - weight for each view (see our paper)
+%   self_b - the hyperparameter beta in our paper
+%   cross_b - the hyperparameter gamma in our paper
+%   metric - the metric for computing distance matrices, it can be
+%            squaredeuclidean, cosine, and original
+% Outputs:
+%   label - the cluster labels
+%   com_a - the affinity matrix of the learned unified graph
+% Reference: Multi-view Graph Learning by Joint Modeling of Consistency and Inconsistency
+
 
 addpath ../MinMaxSelection
 addpath ../util
@@ -9,9 +25,9 @@ max_iter = 100;
 
 %% decide metric
 if nargin < 7
-    metric = 'euclidean';  % NOTE: this actually computes squaredeuclidean
+    metric = 'squaredeuclidean';
     if nargin < 6
-        cross_b = 1e4;
+        cross_b = 1e2;
         if nargin < 5
             self_b = 1;
             if nargin < 4
@@ -29,14 +45,7 @@ end
 knn = knn0 + 1;
 
 %% make distance matrices
-if strcmp(metric, 'original')
-    WW = fea;
-else
-    WW = cell(v, 1);
-    for i=1:v
-        [~, WW{i}] = make_affinity_matrix(fea{i}, metric); % NOTE: this actually computes squaredeuclidean
-    end
-end
+WW = make_distance_matrix(fea, metric);
 
 %% preparation
 n = size(WW{1}, 1);
@@ -68,7 +77,8 @@ end
 
 b = cross_b*ones(v) - diag(cross_b*ones(1,v)) + diag(self_b*ones(1,v));
 
-[S, call_qp, iter, alpha] = consistent_graph_dca_noMKL(v, ne, D, b, w, tol, tol2, max_iter);
+%% run graph learning algorithm
+[S, call_qp, iter, alpha] = consistent_graph_dca_noMKL_noVS(v, ne, D, b, w, tol, tol2, max_iter);
 
 affinity_matrix = sparse_from_idx(S, knn_idx, n, n);
 
