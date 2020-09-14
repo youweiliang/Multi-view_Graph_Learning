@@ -29,6 +29,3 @@ score = getFourMetrics(label, gt)  % 4 metrics: ACC, ARI, NMI, purity
 [label, com_a] = DGF(fea, numClust);
 score = getFourMetrics(label, gt)
 ```
-
-### Multi-view Data
-More multi-view data are available on [this Google Drive](https://drive.google.com/drive/folders/1vzJ19eGy7sAyLTFtM4IWkKzZhFJsi134?usp=sharing "multi-view data").
