@@ -19,7 +19,7 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
-#define max(x, y) (x)>(y)?(x):(y)
+
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     Matrix layout in this file is COLUMN MAJOR
@@ -414,7 +414,7 @@ int main()
     std::default_random_engine re1(rd());
     std::uniform_real_distribution<double> uniform1(0.1, 1);
 
-    int i, j, k, v = 4, n = 10;
+    int i, j, k, v = 4, n = 1000;
     double* W, * W2, * b, * w, * S;
     W = new double[v * n];
     W2 = new double[v * n];
